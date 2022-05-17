@@ -1,20 +1,20 @@
 DATASET: 'scannet'
 BATCH_SIZE: 2
 SAVE_SCENE_MESH: True
-LOGDIR: './checkpoints'
+LOGDIR: '/AppData/scannet/checkpoints'
 SAVE_FREQ: 1
 MODE: 'test'
 
 TRAIN:
-  PATH: 'data/scannet'
-  EPOCHS: 991
+  PATH: '/AppData/scannet/'
+  EPOCHS: 17  # 991
   N_VIEWS: 9
   LR: 1e-3
   N_WORKERS: 8
   LREPOCHS: '12,24,48:2'
 
 TEST:
-  PATH: 'data/scannet'
+  PATH: '/AppData/scannet/'
   N_VIEWS: 9
   N_WORKERS: 4
 

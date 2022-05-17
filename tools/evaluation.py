@@ -45,9 +45,9 @@ def parse_args():
     parser.add_argument('--max_depth', default=10., type=float,
                         help='mask out large depth values since they are noisy')
     parser.add_argument("--data_path", metavar="DIR",
-                        help="path to dataset", default='./data/scannet/scans_test')
+                        help="path to dataset", default='/AppData/scannet//scans_test')
     parser.add_argument("--gt_path", metavar="DIR",
-                        help="path to raw dataset", default='/data/scannet/scannet/scans_test')
+                        help="path to raw dataset", default='/AppData/scannet//scannet/scans_test')
 
     # ray config
     parser.add_argument('--n_proc', type=int, default=2, help='#processes launched to process scenes.')
@@ -124,7 +124,8 @@ def process(scene, total_scenes_index, total_scenes_count):
         color_type=o3d.pipelines.integration.TSDFVolumeColorType.RGB8)
 
     mesh_file = os.path.join(save_path, '%s.ply' % scene.replace('/', '-'))
-    mesh = trimesh.load(mesh_file, process=False)
+    #mesh_file = open(mesh_file, 'r')
+    mesh = trimesh.load(mesh_file, file_type='ply',process=False)
     # mesh renderer
     renderer = Renderer()
     mesh_opengl = renderer.mesh_opengl(mesh)

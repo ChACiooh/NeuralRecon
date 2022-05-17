@@ -186,7 +186,7 @@ class SaveScene(object):
     def __init__(self, cfg):
         self.cfg = cfg
         log_dir = cfg.LOGDIR.split('/')[-1]
-        self.log_dir = os.path.join('results', 'scene_' + cfg.DATASET + '_' + log_dir)
+        self.log_dir = os.path.join('/AppData/scannet/results', 'scene_' + cfg.DATASET + '_' + log_dir)
         self.scene_name = None
         self.global_origin = None
         self.tsdf_volume = []  # not used during inference.

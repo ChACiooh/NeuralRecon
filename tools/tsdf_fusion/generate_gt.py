@@ -18,7 +18,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Fuse ground truth tsdf')
     parser.add_argument("--dataset", default='scannet')
     parser.add_argument("--data_path", metavar="DIR",
-                        help="path to raw dataset", default='/data/scannet/output/')
+                        help="path to raw dataset", default='/AppData/scannet/')
     parser.add_argument("--save_name", metavar="DIR",
                         help="file name", default='all_tsdf')
     parser.add_argument('--test', action='store_true',
@@ -34,10 +34,10 @@ def parse_args():
     parser.add_argument('--min_distance', default=0.1, type=float)
 
     # ray multi processes
-    parser.add_argument('--n_proc', type=int, default=16, help='#processes launched to process scenes.')
+    parser.add_argument('--n_proc', type=int, default=8, help='#processes launched to process scenes.')
     parser.add_argument('--n_gpu', type=int, default=2, help='#number of gpus')
-    parser.add_argument('--num_workers', type=int, default=8)
-    parser.add_argument('--loader_num_workers', type=int, default=8)
+    parser.add_argument('--num_workers', type=int, default=4)
+    parser.add_argument('--loader_num_workers', type=int, default=4)
     return parser.parse_args()
 
 
